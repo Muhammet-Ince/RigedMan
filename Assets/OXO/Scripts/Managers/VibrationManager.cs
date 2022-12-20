@@ -49,7 +49,7 @@ namespace Managers.Vibration
 #if MOREMOUNTAINS_NICEVIBRATIONS
          public static void PlayVibration(HapticTypes type)
          {
-             if (isVibrationEnabled)
+             if (IsVibrationEnabled == 1)
              {
                  MMVibrationManager.Haptic(type);
              }
