@@ -6,6 +6,8 @@ namespace RigMan.Pooling
 {
     public class BulletPooling : MonoBehaviour
     {
+        private Transform _tr;
+        
         [SerializeField] private BulletSettings bulletSettings;
         [SerializeField] private BulletPoolDataHolder bulletDataHolder;
         
@@ -13,6 +15,7 @@ namespace RigMan.Pooling
 
         private void Awake()
         {
+            GetReference();
             BulletPoolInitialize();
         }
 
@@ -20,7 +23,7 @@ namespace RigMan.Pooling
         {
             for (int i = 0; i < bulletPoolSize; i++)
             {
-                GameObject bullet = Instantiate(bulletSettings.BulletPrefab, transform.position, Quaternion.identity);
+                GameObject bullet = Instantiate(bulletSettings.BulletPrefab, _tr.position, Quaternion.identity, transform);
                 bulletDataHolder.bulletList.Add(bullet);
                 bullet.SetActive(false);
             }
@@ -28,7 +31,12 @@ namespace RigMan.Pooling
 
         private void OnDisable()
         {
-            bulletDataHolder.bulletList.Clear();
+            bulletDataHolder.Disable();
+        }
+
+        private void GetReference()
+        {
+            _tr = GetComponent<Transform>();
         }
     }
 }

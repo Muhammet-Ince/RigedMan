@@ -39,7 +39,7 @@ namespace RigMan.UserInput
 
         private void OnClick()
         {
-            if (Physics.Raycast(Ray, out _hit, Mathf.Infinity, inputData.rigLayerMask.value))
+            if (Physics.Raycast(Ray, out _hit, Mathf.Infinity, inputData.DraggableLayerMask.value))
             {
                 _selectedGO = _hit.collider.gameObject;
             }

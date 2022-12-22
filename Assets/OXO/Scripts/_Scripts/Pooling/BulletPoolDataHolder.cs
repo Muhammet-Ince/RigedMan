@@ -8,5 +8,21 @@ namespace RigMan.Pooling
     public class BulletPoolDataHolder : ScriptableObject
     {
         public List<GameObject> bulletList;
+        
+        
+        public void Disable()
+        {
+            bulletList.Clear();
+        }
+
+        public void UseCase(GameObject bullet)
+        {
+            bullet.SetActive(true);
+        }
+
+        public void BackPoolCase(GameObject bullet)
+        {
+            bullet.SetActive(false);
+        }
     }
 }

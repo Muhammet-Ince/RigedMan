@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: User_InputData
   m_EditorClassIdentifier: 
   zDepth: 10
-  rigLayerMask:
+  draggableLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384

@@ -15,6 +15,9 @@ namespace RigMan.Bullet
         [SerializeField] private float bulletSpeed;
         public float BulletSpeed => bulletSpeed;
 
+        [SerializeField] private float bulletBackDelay;
+        public float BulletBackDelay => bulletBackDelay;
+
         public Ease shootEase;
     }
 }

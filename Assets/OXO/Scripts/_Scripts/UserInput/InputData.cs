@@ -7,7 +7,8 @@ namespace RigMan.UserInput
     {
         [SerializeField] private float zDepth;
         public float ZDepth => zDepth;
-        
-        public LayerMask rigLayerMask;
+
+        [SerializeField] private LayerMask draggableLayerMask;
+        public LayerMask DraggableLayerMask => draggableLayerMask;
     }
 }
