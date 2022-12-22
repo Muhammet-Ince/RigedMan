@@ -1,4 +1,5 @@
 using RigMan.ShooterMachine;
+using RigMan.Target;
 using UnityEngine;
 
 namespace RigMan.UserInput
@@ -42,6 +43,10 @@ namespace RigMan.UserInput
             if (Physics.Raycast(Ray, out _hit, Mathf.Infinity, inputData.DraggableLayerMask.value))
             {
                 _selectedGO = _hit.collider.gameObject;
+                if (_selectedGO.TryGetComponent(out TargetManager targetManager))
+                {
+                    targetManager.isMoving = true;
+                }
             }
             else
             {
@@ -62,6 +67,11 @@ namespace RigMan.UserInput
 
         private void OnDragStop()
         {
+            if (_selectedGO != null && _selectedGO.TryGetComponent(out TargetManager targetManager))
+            {
+                targetManager.isMoving = false;
+                targetManager.CheckNull();
+            }
             _selectedGO = null;
         }
     }

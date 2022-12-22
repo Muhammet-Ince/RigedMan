@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,7 +7,11 @@ namespace RigMan.Target
 {
     public class TargetManager : MonoBehaviour
     {
-        [SerializeField] private TargetDamageSettings damageSettings;
+        private RaycastHit _hit;
+        [HideInInspector] public bool isMoving;
+        public GameObject bodyTarget;
+        
+        [SerializeField] private TargetSettings settings;
         
         [SerializeField] private int targetLevel;
         
@@ -16,16 +19,41 @@ namespace RigMan.Target
 
         private void Awake()
         {
-            damage = damageSettings.DamageList[targetLevel];
+            bodyTarget = gameObject;
+            damage = settings.DamageList[targetLevel];
         }
 
         [Button]
         public void UpgradeTarget()
         {
-            if(targetLevel == damageSettings.DamageList.Count - 1) return;
+            if(targetLevel == settings.DamageList.Count - 1) return;
             
             targetLevel++;
-            damage = damageSettings.DamageList[targetLevel];
+            damage = settings.DamageList[targetLevel];
+        }
+
+        private void Update()
+        {
+            if(!isMoving) return;
+            
+            if (Physics.Raycast(transform.position, Vector3.forward, out _hit, Mathf.Infinity,
+                    settings.BodyLayerMask.value))
+            {
+                bodyTarget = _hit.collider.gameObject;
+            }
+            else
+            {
+                bodyTarget = null;
+            }
+
+        }
+
+        public void CheckNull()
+        {
+            if (bodyTarget == null)
+            {
+                bodyTarget = gameObject;
+            }
         }
     }
 }

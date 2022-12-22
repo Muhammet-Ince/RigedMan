@@ -15,8 +15,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/OXO/Scripts/_Scripts/Pooling/BulletPoolDataHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/OXO/Scripts/_Scripts/Pooling/BulletPooling.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/OXO/Scripts/_Scripts/ShooterMachine/ShooterMachineManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/OXO/Scripts/_Scripts/Target/TargetDamageSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/OXO/Scripts/_Scripts/Target/TargetManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/OXO/Scripts/_Scripts/Target/TargetSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/OXO/Scripts/_Scripts/UserInput/InputData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -79,7 +79,7 @@
       <workItem from="1671541364633" duration="1337000" />
       <workItem from="1671553305451" duration="770000" />
       <workItem from="1671621981297" duration="10005000" />
-      <workItem from="1671701501167" duration="10856000" />
+      <workItem from="1671701501167" duration="13273000" />
     </task>
     <servers />
   </component>

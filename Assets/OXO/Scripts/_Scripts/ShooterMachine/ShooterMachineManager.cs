@@ -5,6 +5,7 @@ using DG.Tweening;
 using Redcode.Extensions;
 using RigMan.Bullet;
 using RigMan.Pooling;
+using RigMan.Target;
 using UnityEngine;
 
 namespace RigMan.ShooterMachine
@@ -25,12 +26,13 @@ namespace RigMan.ShooterMachine
             if (bullet == null) return;
             Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
             GameObject getRandomTarget = targetList.GetRandomElement();
+            TargetManager targetManager = getRandomTarget.GetComponent<TargetManager>();
             
 
             bulletDataHolder.UseCase(bullet);
             bullet.transform.position = firePointTransform.position;
 
-            bullet.transform.DOJump(getRandomTarget.transform.position,
+            bullet.transform.DOJump(targetManager.bodyTarget.transform.position,
                     bulletSettings.ShootForce, 1,
                     1 / bulletSettings.BulletSpeed)
                 .SetEase(bulletSettings.shootEase)
