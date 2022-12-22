@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -22,17 +23,28 @@ namespace RigMan.ShooterMachine
             GameObject bullet = bulletDataHolder.bulletList.FirstOrDefault(m => !m.activeInHierarchy);
 
             if (bullet == null) return;
+            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+            GameObject getRandomTarget = targetList.GetRandomElement();
+            
 
             bulletDataHolder.UseCase(bullet);
             bullet.transform.position = firePointTransform.position;
 
-            Sequence bulletJumpSequence = bullet.transform.DOJump(targetList.GetRandomElement().transform.position,
+            bullet.transform.DOJump(getRandomTarget.transform.position,
                     bulletSettings.ShootForce, 1,
                     1 / bulletSettings.BulletSpeed)
-                .SetEase(bulletSettings.shootEase);
+                .SetEase(bulletSettings.shootEase)
+                .OnComplete(() =>
+                {
+                    bulletRb.AddForce(Vector3.forward * 500);
+                    StartCoroutine(BulletCallBack(bullet));
+                });
+        }
 
-            bulletJumpSequence.Append(DOVirtual.DelayedCall(bulletSettings.BulletBackDelay, () => bulletDataHolder.BackPoolCase(bullet)));
-
+        private IEnumerator BulletCallBack(GameObject bullet)
+        {
+            yield return new WaitForSeconds(bulletSettings.BulletBackDelay);
+            bulletDataHolder.BackPoolCase(bullet);
         }
     }
 }

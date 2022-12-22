@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Arm Left
-  m_Shader: {fileID: -6465566751694194690, guid: 3796bf3db6797d96195381c2580d4437,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 3796bf3db6797d96195381c2580d4437, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -106,6 +105,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Slider: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -114,18 +114,18 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _slider: 0.1
     m_Colors:
     - Color_4426999063b847ddb3ca0200d0cd3a69: {r: 1, g: 1, b: 1, a: 0}
-    - Color_a504019d20ff46afb4ba8df6aa77194d: {r: 1, g: 0.015686275, b: 0.015686275,
-        a: 0}
+    - Color_a504019d20ff46afb4ba8df6aa77194d: {r: 1, g: 0.015686275, b: 0.015686275, a: 0}
     - Color_c2df8d538a29426d87cca79e3feeba9c: {r: 1, g: 0.15225321, b: 0, a: 0}
     - Ofset: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
-    - _Blushing: {r: 0.9811321, g: 0.17593376, b: 0.14346743, a: 0}
+    - _Blushing: {r: 0.65444326, g: 0, b: 1, a: 1}
     - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Shadow: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0}
-    - _Skin_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Skin_Color: {r: 1, g: 0.19339621, b: 0.19339621, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6288386964216622163
